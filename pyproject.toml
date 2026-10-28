@@ -1,0 +1,35 @@
+[project]
+name = "ytm-import"
+version = "0.1.0"
+description = "Spotify のお気に入りの曲を YouTube Music の高評価に移すツール"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    { name = "ygkn", email = "14973783+ygkn@users.noreply.github.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "rapidfuzz>=3.14.6",
+    "requests>=2.34.2",
+    "textual>=8.2.8",
+    "ytmusicapi>=1.12.3",
+]
+
+[project.scripts]
+ytm-import = "ytm_import:main"
+
+[build-system]
+requires = ["uv_build>=0.13.6,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+    "pytest-asyncio>=1.4.1",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
